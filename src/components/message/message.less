@@ -1,0 +1,119 @@
+// less， 所有 & 符号标示 上一层的 className
+.koi-toast{
+    position: fixed;
+    max-width: 80%;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    box-sizing: border-box;
+    text-align: center;
+    z-index: 10000;
+    transition: opacity .3s linear;
+    padding: 0 10px 10px 10px;
+    min-width: 80px;
+    &-icon{
+        padding-top: 10px;
+    }
+    &-text{
+        padding-top: 10px;
+        font-size: 14px;
+        display: block;
+        text-align: center;
+    }
+    // 显示在头部
+    &.is-top{
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    // 居中显示
+    &.is-middle{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    // 底部显示
+    &.is-bottom{
+        bottom: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    // vue 动画 class样式
+    &-pop-enter, &-pop-leave-active {
+        opacity: 0;
+    }
+}
+
+.koi-modal{
+    // @border-1 定义一个变量
+    @border-1: 1px solid rgba(0,0,0,.1);
+    // 讲内容 relative 后，方便 使用 absolute 定位
+    &-rel{
+        position: relative; height: 100%;
+    }
+    // 蒙版
+    &-mask{
+        background-color: rgba(0, 0, 0, .4);
+        position: fixed;
+        z-index: 9999;
+        top: 0; left: 0; right: 0; bottom: 0;
+        overflow: hidden;
+    }
+    // 内容
+    &-box{
+        text-align: center; font-style: normal;
+        max-width: 90%;
+        min-width: 280px;
+        border-radius: 5px;
+        overflow: hidden;
+        background-color: #FFFFFF;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        min-height: 50px;
+        transform: translateX(-50%) translateY(-50%);
+        transition: all .1s linear;
+    }
+    // vue 动画class
+    &-enter &-box{
+        opacity: 0;
+        transform: translate3d(-50%, -50%, 0) scale(0.7);
+    }
+    &-leave-active &-box{
+        opacity: 0;
+        transform: translate3d(-50%, -50%, 0) scale(0.9);
+    }
+
+    // 标题
+    &-title{
+        padding: 16px 6px 0 6px; min-height: 18px; line-height: 18px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    }
+
+    // 消息内容
+    &-context{
+        padding: 20px 6px; min-height: 18px; line-height: 18px; word-break: break-all;
+    }
+    // 按钮区域
+    &-btnc{
+        border-top: @border-1; 
+        display: flex; width: 100%;
+    }
+    // 按钮
+    &-btn{
+        flex: 1;
+        text-align: center;
+        line-height: 45px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        border-left: @border-1; 
+        &:first-child{
+            border-left: none;
+        }
+        // 按钮高亮
+        &-light{
+            color: #00b358;
+        }
+    }
+}
