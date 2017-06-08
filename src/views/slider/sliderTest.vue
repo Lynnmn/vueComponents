@@ -21,11 +21,6 @@
           <button @click="showTextLoading">带文字的loading</button>
           <button @click="hideLoading">关闭Loading</button>
       </div>
-
-      <div class="wxApiWrap">
-          <p>wxApi test</p>
-          <button @click="showWx">控制台输出wxApi</button>
-      </div>
     </div>
     
 </template>
@@ -82,7 +77,6 @@
   import SliderItem from '../../components/slider/slider-item'
   import Toast from '../../components/toast/toast.js'
   import Loading from '../../components/loading/loading.js'
-  import wxApi from '../../components/wxApi/wxApi.js'
 
   export default {
 
@@ -118,9 +112,6 @@
         },
         hideLoading: function(){
             Loading.hide()
-        },
-        showWx: function(){
-            wxApi.share()
         }
     },
 
